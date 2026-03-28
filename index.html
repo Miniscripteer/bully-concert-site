@@ -15,7 +15,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* SIDE NAV */
+/* SIDE NAV (LEFT) */
 .nav {
   position: fixed;
   left: 0;
@@ -39,6 +39,13 @@ body {
 
 .nav a:hover {
   opacity: 1;
+}
+
+/* RIGHT PLAYER */
+.player {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
 }
 
 /* MAIN */
@@ -67,7 +74,6 @@ a.button {
 }
 
 iframe {
-  margin-top: 30px;
   border-radius: 12px;
 }
 </style>
@@ -75,11 +81,14 @@ iframe {
 
 <body>
 
+<!-- LEFT NAV -->
 <div class="nav">
   <a href="/">HOME</a>
   <a href="/credits.html">CREDITS</a>
+  <a href="/countdown.html">COUNTDOWN</a>
 </div>
 
+<!-- MAIN -->
 <div class="main">
   <div>
     <h1>BULLY</h1>
@@ -89,16 +98,17 @@ iframe {
       JOIN EXPERIENCE
     </a>
 
-    <!-- MUSIC PLAYER -->
-    <iframe width="300" height="170"
-      src="https://www.youtube.com/embed/u9v7ZkQqKYk"
-      allow="autoplay">
-    </iframe>
-
     <p style="margin-top:20px; font-size:12px; opacity:0.4;">
       LIVE EVENT • LIMITED ACCESS
     </p>
   </div>
+</div>
+
+<!-- RIGHT SIDE PLAYER -->
+<div class="player">
+  <iframe width="300" height="170"
+    src="https://www.youtube.com/embed/videoseries?list=OLAK5uy_n2MS9bY7gjMFX9-u3KoyTEFV_fA5-jNG4">
+  </iframe>
 </div>
 
 </body>
