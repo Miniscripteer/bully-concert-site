@@ -15,11 +15,24 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* SIDE NAV (LEFT) */
+/* ANNOUNCEMENT */
+#announcement {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 8px;
+  font-size: 12px;
+  z-index: 999;
+}
+
+/* NAV */
 .nav {
   position: fixed;
   left: 0;
-  top: 0;
+  top: 40px;
   height: 100%;
   width: 80px;
   display: flex;
@@ -41,13 +54,6 @@ body {
   opacity: 1;
 }
 
-/* RIGHT PLAYER */
-.player {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-}
-
 /* MAIN */
 .main {
   flex: 1;
@@ -62,7 +68,7 @@ h1 {
   letter-spacing: 0.2em;
 }
 
-a.button {
+.button {
   margin-top: 30px;
   display: inline-block;
   padding: 15px 30px;
@@ -73,6 +79,13 @@ a.button {
   font-weight: bold;
 }
 
+/* PLAYER RIGHT */
+.player {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
 iframe {
   border-radius: 12px;
 }
@@ -81,20 +94,21 @@ iframe {
 
 <body>
 
-<!-- LEFT NAV -->
+<div id="announcement"></div>
+
 <div class="nav">
   <a href="/">HOME</a>
   <a href="/credits.html">CREDITS</a>
   <a href="/countdown.html">COUNTDOWN</a>
+  <a href="/affiliates.html">AFFILIATES</a>
 </div>
 
-<!-- MAIN -->
 <div class="main">
   <div>
     <h1>BULLY</h1>
     <p style="opacity:0.6;">Roblox Concert Experience</p>
 
-    <a class="button" href="https://www.roblox.com/games/136757600016645" target="_blank">
+    <a class="button" href="https://www.roblox.com/games/YOUR-GAME-ID" target="_blank">
       JOIN EXPERIENCE
     </a>
 
@@ -104,12 +118,23 @@ iframe {
   </div>
 </div>
 
-<!-- RIGHT SIDE PLAYER -->
 <div class="player">
   <iframe width="300" height="170"
     src="https://www.youtube.com/embed/videoseries?list=OLAK5uy_n2MS9bY7gjMFX9-u3KoyTEFV_fA5-jNG4">
   </iframe>
 </div>
+
+<script>
+fetch('announcement.json')
+  .then(res => res.json())
+  .then(data => {
+    if (data.enabled) {
+      document.getElementById('announcement').innerText = data.text;
+    } else {
+      document.getElementById('announcement').style.display = "none";
+    }
+  });
+</script>
 
 </body>
 </html>
