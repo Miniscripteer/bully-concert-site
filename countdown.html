@@ -11,37 +11,35 @@ body {
   height: 100vh;
   background: black;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-a {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: white;
-  text-decoration: none;
-  opacity: 0.6;
-}
-
-a:hover {
-  opacity: 1;
+#announcement {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  color: black;
+  padding: 8px;
+  font-size: 12px;
 }
 
 #timer {
   font-size: 2rem;
   margin-top: 20px;
-  opacity: 0.8;
 }
 </style>
 </head>
 
 <body>
 
-<a href="/">← BACK</a>
+<div id="announcement"></div>
+
+<a href="/" style="position:absolute; top:20px; left:20px; color:white;">← BACK</a>
 
 <div>
   <h1>CONCERT COUNTDOWN</h1>
@@ -49,6 +47,14 @@ a:hover {
 </div>
 
 <script>
+fetch('announcement.json')
+  .then(res => res.json())
+  .then(data => {
+    if (data.enabled) {
+      document.getElementById('announcement').innerText = data.text;
+    }
+  });
+
 const targetDate = new Date("March 28, 2026 19:00:00 GMT-0500").getTime();
 
 setInterval(() => {
@@ -56,11 +62,22 @@ setInterval(() => {
   const distance = targetDate - now;
 
   if (distance < 0) {
-    document.getElementById("timer").innerHTML = "LIVE NOW";
+    document.getElementById("timer").innerHTML = `
+      <a href="https://www.roblox.com/games/YOUR-GAME-ID" style="
+        padding:15px 30px;
+        background:white;
+        color:black;
+        border-radius:999px;
+        text-decoration:none;
+        font-weight:bold;
+      ">
+        JOIN NOW
+      </a>
+    `;
     return;
   }
 
-  const hours = Math.floor((distance / (1000 * 60 * 60)));
+  const hours = Math.floor(distance / (1000 * 60 * 60));
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
