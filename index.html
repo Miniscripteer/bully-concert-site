@@ -10,10 +10,19 @@ body {
   margin: 0;
   height: 100vh;
   display: flex;
-  background: url('/background.jpg') no-repeat center center fixed;
+  background: url('https://i.imgur.com/jfR4Gz8.jpeg') no-repeat center center fixed;
   background-size: cover;
   color: white;
   font-family: Arial, sans-serif;
+}
+
+/* DARK OVERLAY (makes text readable) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 0;
 }
 
 /* ANNOUNCEMENT */
@@ -41,6 +50,7 @@ body {
   justify-content: center;
   gap: 20px;
   align-items: center;
+  z-index: 2;
 }
 
 .nav a {
@@ -62,6 +72,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  z-index: 2;
 }
 
 h1 {
@@ -85,6 +96,7 @@ h1 {
   position: fixed;
   right: 20px;
   bottom: 20px;
+  z-index: 2;
 }
 
 iframe {
