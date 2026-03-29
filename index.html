@@ -14,6 +14,7 @@ body {
   background-size: cover;
   color: white;
   font-family: Arial, sans-serif;
+  position: relative;
 }
 
 /* DARK OVERLAY (makes text readable) */
@@ -22,7 +23,8 @@ body::before {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.5);
-  z-index: 1;
+  z-index: 0;
+  pointer-events: none; /* <-- lets clicks pass through */
 }
 
 /* ANNOUNCEMENT */
@@ -73,6 +75,7 @@ body::before {
   align-items: center;
   text-align: center;
   z-index: 2;
+  position: relative;
 }
 
 h1 {
