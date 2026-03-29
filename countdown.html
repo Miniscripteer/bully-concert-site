@@ -42,7 +42,7 @@ body {
 <a href="/" style="position:absolute; top:20px; left:20px; color:white;">← BACK</a>
 
 <div>
-  <h1>CONCERT COUNTDOWN</h1>
+  <h1>ALBUM COUNTDOWN</h1>
   <div id="timer">Loading...</div>
 </div>
 
@@ -55,7 +55,7 @@ fetch('announcement.json')
     }
   });
 
-const targetDate = new Date("March 28, 2026 20:00:00 GMT-0500").getTime();
+const targetDate = new Date("April 15th, 2026 18:00:00 GMT-0500").getTime();
 
 setInterval(() => {
   const now = new Date().getTime();
@@ -63,7 +63,7 @@ setInterval(() => {
 
   if (distance < 0) {
     document.getElementById("timer").innerHTML = `
-      <a href="https://www.roblox.com/games/136757600016645" style="
+      <a href="https://www.roblox.com/games/ad" style="
         padding:15px 30px;
         background:white;
         color:black;
