@@ -10,7 +10,8 @@ body {
   margin: 0;
   height: 100vh;
   display: flex;
-  background: linear-gradient(to bottom, #800080, #111);
+  background: url('/background.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: white;
   font-family: Arial, sans-serif;
 }
@@ -133,6 +134,9 @@ fetch('announcement.json')
     } else {
       document.getElementById('announcement').style.display = "none";
     }
+  })
+  .catch(() => {
+    document.getElementById('announcement').style.display = "none";
   });
 </script>
 
